@@ -427,6 +427,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183289925}
   m_CullTransparentMesh: 1
+--- !u!1 &185776897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8611265846349103373, guid: 8c22dd37cdfb09040ab136f329bdfab1, type: 3}
+  m_PrefabInstance: {fileID: 43340000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &406969169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1040,6 +1045,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244494864}
   m_CullTransparentMesh: 1
+--- !u!1 &1302418302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8611265846349103373, guid: 8c22dd37cdfb09040ab136f329bdfab1, type: 3}
+  m_PrefabInstance: {fileID: 406969169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1403360243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1191,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405092970}
   m_CullTransparentMesh: 1
+--- !u!1 &1439912033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8611265846349103373, guid: 8c22dd37cdfb09040ab136f329bdfab1, type: 3}
+  m_PrefabInstance: {fileID: 526668753}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1497548531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1310,7 @@ GameObject:
   - component: {fileID: 1871109404}
   - component: {fileID: 1871109403}
   - component: {fileID: 1871109402}
+  - component: {fileID: 1871109406}
   m_Layer: 5
   m_Name: QuizCanvas
   m_TagString: Untagged
@@ -1386,6 +1402,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1871109406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871109401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e275e9c770959a42b4e160c52792623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _question: {fileID: 11400000, guid: c3ba6f85aa496554c91e5e067bf1ae8d, type: 2}
+  _questionText: {fileID: 183289927}
+  _answerButtons:
+  - {fileID: 1943061876}
+  - {fileID: 1439912033}
+  - {fileID: 185776897}
+  - {fileID: 1302418302}
+--- !u!1 &1943061876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8611265846349103373, guid: 8c22dd37cdfb09040ab136f329bdfab1, type: 3}
+  m_PrefabInstance: {fileID: 8137356638964753359}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8137356638964753359
 PrefabInstance:
   m_ObjectHideFlags: 0

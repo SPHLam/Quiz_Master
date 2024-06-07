@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: New Question 1
   m_EditorClassIdentifier: 
   question: The smallest prime number?
+  answers:
+  - 0
+  - 1
+  - 2
+  - 3
+  correctAnswerIndex: 0
