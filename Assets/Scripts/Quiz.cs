@@ -24,9 +24,12 @@ public class Quiz : MonoBehaviour
 
     void Start()
     {
-        _questionText.text = _question.GetQuestion();
+        GetNextQuestion();
+    }
 
-        _correctAnswerIndex = _question.GetCorrectAnswerIndex();
+    private void DisplayQuestionAndAnswers()
+    {
+        _questionText.text = _question.GetQuestion();
 
         for (int i = 0; i < _answerButtons.Length; i++)
         {
@@ -35,9 +38,18 @@ public class Quiz : MonoBehaviour
         }
     }
 
+    private void GetNextQuestion()
+    {
+        DisplayQuestionAndAnswers();
+        SetButtonState(true);
+        SetDefaultButtonSprite();
+    }
+
     public void OnAnswerSelected(int buttonIndex)
     {
         Image buttonImage;
+
+        _correctAnswerIndex = _question.GetCorrectAnswerIndex();
 
         if (buttonIndex == _correctAnswerIndex)
         {
@@ -50,6 +62,24 @@ public class Quiz : MonoBehaviour
             _questionText.text = "Sorry, the answer was " + _question.GetAnswer(_correctAnswerIndex);
             buttonImage = _answerButtons[_correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
+        }
+
+        SetButtonState(false);
+    }
+
+    private void SetButtonState(bool state)
+    {
+        for (int i = 0; i < _answerButtons.Length; i++)
+        {
+            _answerButtons[i].GetComponent<Button>().interactable = state;
+        }
+    }
+
+    private void SetDefaultButtonSprite()
+    {
+        for (int i = 0; i < _answerButtons.Length; i++)
+        {
+            _answerButtons[i].GetComponent<Image>().sprite = defaultAnswerSprite;
         }
     }
 }
