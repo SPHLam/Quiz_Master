@@ -15,14 +15,41 @@ public class Quiz : MonoBehaviour
     [SerializeField]
     GameObject[] _answerButtons = new GameObject[4];
 
+    private int _correctAnswerIndex;
+
+    [SerializeField]
+    private Sprite defaultAnswerSprite;
+    [SerializeField]
+    private Sprite correctAnswerSprite;
+
     void Start()
     {
         _questionText.text = _question.GetQuestion();
+
+        _correctAnswerIndex = _question.GetCorrectAnswerIndex();
 
         for (int i = 0; i < _answerButtons.Length; i++)
         {
             TextMeshProUGUI buttonText = _answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
             buttonText.text = _question.GetAnswer(i);
+        }
+    }
+
+    public void OnAnswerSelected(int buttonIndex)
+    {
+        Image buttonImage;
+
+        if (buttonIndex == _correctAnswerIndex)
+        {
+            _questionText.text = "Correct";
+            buttonImage = _answerButtons[buttonIndex].GetComponent<Image>();
+            buttonImage.sprite = correctAnswerSprite;
+        }
+        else
+        {
+            _questionText.text = "Sorry, the answer was " + _question.GetAnswer(_correctAnswerIndex);
+            buttonImage = _answerButtons[_correctAnswerIndex].GetComponent<Image>();
+            buttonImage.sprite = correctAnswerSprite;
         }
     }
 }
