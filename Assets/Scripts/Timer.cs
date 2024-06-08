@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -9,8 +10,21 @@ public class Timer : MonoBehaviour
     [SerializeField]
     float timeToShowCorrectAnswer = 10f;
 
-    public bool isAnswering = false;
-    float timerValue;
+    [SerializeField]
+    Image timerImage;
+
+    public bool showingCorrectAnswer = false;
+    public bool nextQuestion = false;
+    private float timerValue; // time left
+    private float fillFraction; // for timer UI 
+    private int answerChoice;
+
+    Quiz quiz;
+    void Start()
+    {
+        timerValue = timeToCompleteQuestion;
+        quiz = GameObject.Find("QuizCanvas").GetComponent<Quiz>();
+    }
     void Update()
     {
         UpdateTimer();
@@ -21,18 +35,37 @@ public class Timer : MonoBehaviour
         timerValue -= Time.deltaTime;
         if (timerValue <= 0)
         {
-            if (!isAnswering)
+            if (showingCorrectAnswer) // Showing answer -> Next question
+            {
+                nextQuestion = true;
+                timerValue = timeToCompleteQuestion;
+                showingCorrectAnswer = false;
+            }
+            else // Question -> Showing answer
             {
                 timerValue = timeToShowCorrectAnswer;
-                isAnswering = true;
+                showingCorrectAnswer = true;
+            }
+        }
+        else // Timer UI
+        {
+            if (!showingCorrectAnswer)
+            {
+                fillFraction = timerValue / timeToCompleteQuestion;
             }
             else
             {
-                timerValue = timeToCompleteQuestion;
-                isAnswering = false;
+                fillFraction = timerValue / timeToShowCorrectAnswer;
             }
-        }
 
-        Debug.Log(timerValue);
+            timerImage.fillAmount = fillFraction;
+
+            // Debug.Log(fillFraction + "\n" + timerValue);
+        }
+    }
+
+    public void CancelTimer()
+    {
+        timerValue = 0;
     }
 }

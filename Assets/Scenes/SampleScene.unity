@@ -493,9 +493,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2d6e2a60ee32d4db735525d14f6b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToCompleteQuestion: 30
-  timeToShowCorrectAnswer: 10
-  isAnswering: 0
+  timeToCompleteQuestion: 6
+  timeToShowCorrectAnswer: 1
+  timerImage: {fileID: 510956265}
+  nextQuestion: 0
 --- !u!4 &260398961
 Transform:
   m_ObjectHideFlags: 0
