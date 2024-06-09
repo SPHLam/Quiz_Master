@@ -14,7 +14,7 @@ public class Quiz : MonoBehaviour
     [Header("Answers")]
     [SerializeField]  GameObject[] _answerButtons = new GameObject[4];
     private int _correctAnswerIndex;
-    private bool hasAnsweredEarly = false;
+    private bool hasAnsweredEarly = true;
 
     [Header("Button Sprites")]
     [SerializeField]
@@ -33,7 +33,7 @@ public class Quiz : MonoBehaviour
     [SerializeField] Slider progressBar;
     public bool isComplete;
 
-    void Start()
+    void Awake()
     {
         timer = GameObject.Find("Timer").GetComponent<Timer>();
         _scoreKeeper = GameObject.Find("ScoreKeeper").GetComponent<ScoreKeeper>();
@@ -52,6 +52,11 @@ public class Quiz : MonoBehaviour
     {
         if (timer.nextQuestion)
         {
+            if (progressBar.value == progressBar.maxValue)
+            {
+                isComplete = true;
+                return;
+            }
             hasAnsweredEarly = false;
             GetNextQuestion();
             timer.nextQuestion = false;
@@ -104,11 +109,6 @@ public class Quiz : MonoBehaviour
         SetButtonState(false);
         timer.CancelTimer();
         scoreText.text = "Score: " + _scoreKeeper.CalculateScore() + "%";
-
-        if (progressBar.value == progressBar.maxValue)
-        {
-            isComplete = true;
-        }
     }
 
     private void SetButtonState(bool state)
