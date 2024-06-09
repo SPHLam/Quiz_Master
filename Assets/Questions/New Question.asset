@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: New Question
   m_EditorClassIdentifier: 
   question: What is the number of XVI?
+  answers:
+  - 15
+  - 16
+  - 17
+  - 18
+  correctAnswerIndex: 1

@@ -49,13 +49,13 @@ public class Timer : MonoBehaviour
         }
         else // Timer UI
         {
-            if (!showingCorrectAnswer)
+            if (showingCorrectAnswer)
             {
-                fillFraction = timerValue / timeToCompleteQuestion;
+                fillFraction = timerValue / timeToShowCorrectAnswer;
             }
             else
             {
-                fillFraction = timerValue / timeToShowCorrectAnswer;
+                fillFraction = timerValue / timeToCompleteQuestion;
             }
 
             timerImage.fillAmount = fillFraction;

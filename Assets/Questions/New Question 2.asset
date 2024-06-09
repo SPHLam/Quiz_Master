@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43c408c59e0a24409b5f5ee55668624, type: 3}
   m_Name: New Question 2
   m_EditorClassIdentifier: 
-  question: How many elements exist in this world?
+  question: What is not the principal of OOP?
+  answers:
+  - Validation
+  - Encapsulation
+  - Abstraction
+  - Inheritance
+  correctAnswerIndex: 0
